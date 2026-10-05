@@ -49,6 +49,7 @@ app.use('/api/projects', require('./routes/projects'));
 app.use('/api/judges', require('./routes/judges'));
 app.use('/api/organizers', require('./routes/organizers'));
 app.use('/api/mentors', require('./routes/mentors'));
+app.use('/api/roles', require('./routes/roles'));
 app.use('/api/attendance', require('./routes/attendance'));
 app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/support', require('./routes/support'));

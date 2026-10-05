@@ -12,6 +12,7 @@ import {
   X,
   Sparkles,
   Flame,
+  ShieldAlert,
 } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -21,56 +22,34 @@ export default function Sidebar({ isOpen, onClose }) {
   const { user, logout, switchRole } = useAuth();
 
   const menu = [
-    {
-      name: "Dashboard",
-      path: "/dashboard",
-      icon: LayoutDashboard,
-    },
-    {
-      name: "Hackathons",
-      path: "/hackathons",
-      icon: Trophy,
-    },
-    {
-      name: "Teams",
-      path: "/teams",
-      icon: Users,
-    },
-    {
-      name: "Submissions",
-      path: "/submissions",
-      icon: FileText,
-    },
-    {
-      name: "Judges",
-      path: "/judges",
-      icon: UserCheck,
-    },
-    {
-      name: "Mentors",
-      path: "/mentors",
-      icon: GraduationCap,
-    },
-    {
-      name: "Attendance",
-      path: "/attendance",
-      icon: QrCode,
-    },
-    {
-      name: "Certificates",
-      path: "/certificates",
-      icon: Award,
-    },
-    {
-      name: "Analytics",
-      path: "/analytics",
-      icon: BarChart3,
-    },
+    { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+    { name: "Hackathons", path: "/hackathons", icon: Trophy },
+    { name: "Teams", path: "/teams", icon: Users },
+    { name: "Submissions", path: "/submissions", icon: FileText },
+    { name: "Judges", path: "/judges", icon: UserCheck },
+    { name: "Mentors", path: "/mentors", icon: GraduationCap },
+    { name: "Attendance", path: "/attendance", icon: QrCode },
+    { name: "Certificates", path: "/certificates", icon: Award },
+    { name: "Analytics", path: "/analytics", icon: BarChart3 },
   ];
 
   const handleLogout = () => {
     logout();
     navigate("/login");
+  };
+
+  // SECURITY: Derive authorized roles from the user's assignedRoles array
+  // If no assignedRoles exist, fall back to the single 'role' field or default to participant
+  const authorizedRoles = Array.isArray(user?.assignedRoles)
+    ? user.assignedRoles
+    : [user?.role || "participant"];
+
+  const roleLabels = {
+    participant: "Participant View",
+    organizer: "Organizer View",
+    judge: "Judge View",
+    mentor: "Mentor View",
+    admin: "Admin View",
   };
 
   return (
@@ -149,22 +128,34 @@ export default function Sidebar({ isOpen, onClose }) {
         <div className="p-4 border-t border-red-950/50 space-y-3 bg-[#0a0707]">
           <div className="bg-[#170e0d] border border-red-900/40 rounded-xl p-3 shadow-inner">
             <div className="flex items-center justify-between text-xs mb-1.5">
-              <span className="text-zinc-400 text-[11px]">Active Persona:</span>
+              <span className="text-zinc-400 text-[11px] flex items-center gap-1">
+                <ShieldAlert size={12} className="text-orange-500" />
+                Active Persona:
+              </span>
               <span className="capitalize font-bold text-orange-400 text-xs flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                {user?.role || "organizer"}
+                {user?.role || "participant"}
               </span>
             </div>
-            <select
-              value={user?.role || "organizer"}
-              onChange={(e) => switchRole(e.target.value)}
-              className="w-full bg-[#0d0909] text-zinc-200 text-xs rounded-lg px-2.5 py-2 border border-red-900/50 outline-none focus:border-orange-500 cursor-pointer transition"
-            >
-              <option value="organizer">Organizer View</option>
-              <option value="participant">Participant View</option>
-              <option value="judge">Judge View</option>
-              <option value="mentor">Mentor View</option>
-            </select>
+
+            {/* SECURITY: Only show roles the user is actually authorized to use */}
+            {authorizedRoles.length > 1 ? (
+              <select
+                value={user?.role || "participant"}
+                onChange={(e) => switchRole(e.target.value)}
+                className="w-full bg-[#0d0909] text-zinc-200 text-xs rounded-lg px-2.5 py-2 border border-red-900/50 outline-none focus:border-orange-500 cursor-pointer transition"
+              >
+                {authorizedRoles.map((r) => (
+                  <option key={r} value={r}>
+                    {roleLabels[r] || `${r.charAt(0).toUpperCase() + r.slice(1)} View`}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <div className="w-full bg-[#0d0909] text-zinc-300 text-xs rounded-lg px-2.5 py-2 border border-red-900/50">
+                {roleLabels[authorizedRoles[0]] || "Participant View"}
+              </div>
+            )}
           </div>
 
           <button

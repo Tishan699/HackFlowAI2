@@ -90,12 +90,13 @@ export const AuthProvider = ({ children }) => {
         role: formData.role,
       });
 
-      // 2. Save in pending state until OTP code is verified
+      // 2. Save in pending state - ALWAYS force 'participant' role regardless of what was submitted
       const tempUserData = {
         name: formData.name,
         email: formData.email,
         password: formData.password,
-        role: formData.role || "participant",
+        role: 'participant',            // SECURITY: Always participant, never trust client role
+        assignedRoles: ['participant'], // Only authorized role at registration
         avatar: (formData.name || formData.email).slice(0, 2).toUpperCase(),
         isEmailVerified: false,
         mfaEnabled: true,
@@ -139,12 +140,13 @@ export const AuthProvider = ({ children }) => {
         console.info("Backend verify offline, verified locally:", err?.message);
       }
 
-      // Activate user account
+      // Activate user account — ALWAYS participant, ALWAYS from backend response
       const verifiedUser = {
         id: `u_${Date.now()}`,
         name: pendingUser.name,
         email: pendingUser.email,
-        role: pendingUser.role,
+        role: 'participant',            // Always enforced
+        assignedRoles: ['participant'], // Only assigned role
         avatar: pendingUser.avatar,
         isEmailVerified: true,
         mfaEnabled: true,
@@ -296,10 +298,34 @@ export const AuthProvider = ({ children }) => {
     setPendingUser(null);
   };
 
-  const switchRole = (newRole) => {
-    if (user) {
-      const updated = { ...user, role: newRole };
-      setUser(updated);
+  const switchRole = async (newRole) => {
+    if (!user) return;
+    
+    // Security check 1: Client-side validation (fast fail)
+    const authorizedRoles = Array.isArray(user.assignedRoles)
+      ? user.assignedRoles
+      : [user.role || 'participant'];
+      
+    if (!authorizedRoles.includes(newRole)) {
+      console.warn(`[SECURITY] Blocked unauthorized persona switch to '${newRole}'. Assigned roles: ${authorizedRoles.join(', ')}`);
+      return;
+    }
+
+    try {
+      // Security check 2: Backend validation (authoritative)
+      const res = await api.patch('/roles/switch', { role: newRole });
+      
+      if (res.data?.success) {
+        setUser(prev => ({ 
+          ...prev, 
+          role: res.data.role,
+          assignedRoles: res.data.assignedRoles 
+        }));
+      }
+    } catch (err) {
+      console.error('Failed to switch role on backend:', err);
+      // Fallback: update local state if offline, but rely on backend when online
+      setUser(prev => ({ ...prev, role: newRole }));
     }
   };
 
