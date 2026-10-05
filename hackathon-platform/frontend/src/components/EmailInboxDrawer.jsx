@@ -32,7 +32,7 @@ export default function EmailInboxDrawer({ onSelectOtp }) {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 px-4 py-3 bg-[#170e0d] text-white rounded-full shadow-2xl border border-red-900/60 hover:border-orange-500/60 hover:scale-105 transition-all duration-200 cursor-pointer group"
+        className="fixed bottom-5 left-5 z-50 flex items-center gap-2.5 px-4 py-3 bg-[#170e0d] text-white rounded-full shadow-2xl border border-red-900/60 hover:border-orange-500/60 hover:scale-105 transition-all duration-200 cursor-pointer group"
       >
         <div className="relative">
           <Mail size={18} className="text-orange-400 group-hover:text-amber-300" />
