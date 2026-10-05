@@ -4,18 +4,11 @@ const isBrowser = typeof window !== "undefined";
 const isLocal = isBrowser && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
 
 const getApiBaseUrl = () => {
-  let envUrl = import.meta.env.VITE_API_URL;
-  if (envUrl && typeof envUrl === "string") {
-    envUrl = envUrl.trim().replace(/\/+$/, "");
-    if (!isLocal && envUrl.startsWith("http://localhost")) {
-      return "https://hackflowai2.onrender.com/api";
-    }
-    if (!envUrl.endsWith("/api")) {
-      envUrl = `${envUrl}/api`;
-    }
-    return envUrl;
+  if (isLocal) {
+    return "http://localhost:5000/api";
   }
-  return isLocal ? "http://localhost:5000/api" : "https://hackflowai2.onrender.com/api";
+  // In production, backend and frontend are on the same domain, so we use a relative path
+  return "/api";
 };
 
 const API_BASE_URL = getApiBaseUrl();
