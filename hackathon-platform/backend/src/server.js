@@ -20,6 +20,9 @@ app.use(express.urlencoded({ extended: true, limit: '25mb' }));
 // Static file hosting for uploaded project deliverables & PDFs
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Serve the compiled frontend static files
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+
 // Request logging in development
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
@@ -50,9 +53,14 @@ app.use('/api/attendance', require('./routes/attendance'));
 app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/support', require('./routes/support'));
 
-// 404 Route Handler
-app.use((req, res) => {
+// 404 Route Handler for API endpoints
+app.use('/api', (req, res) => {
   res.status(404).json({ error: `API route not found: ${req.method} ${req.url}` });
+});
+
+// Catch-all route to serve the React frontend for any non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
 
 // Global Error Handler
