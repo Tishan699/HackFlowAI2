@@ -200,7 +200,7 @@ exports.verifyOtp = async (req, res) => {
  */
 exports.resendVerificationEmail = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, otp: providedOtp, name: providedName, role: providedRole } = req.body;
     if (!email) {
       return res.status(400).json({ error: 'Email address is required.' });
     }
@@ -208,7 +208,7 @@ exports.resendVerificationEmail = async (req, res) => {
     const normalizedEmail = email.toLowerCase().trim();
     const user = db.findOne('users', u => u.email.toLowerCase() === normalizedEmail);
 
-    const otp = generateOtp();
+    const otp = providedOtp || generateOtp();
     db.insert('otps', {
       email: normalizedEmail,
       otp,
@@ -218,9 +218,9 @@ exports.resendVerificationEmail = async (req, res) => {
 
     await sendVerificationEmail({
       to: normalizedEmail,
-      name: user?.name || 'Innovator',
+      name: providedName || user?.name || 'Innovator',
       otp,
-      role: user?.role || 'participant',
+      role: providedRole || user?.role || 'participant',
     });
 
     res.json({ success: true, message: 'A new security code has been sent to your email.' });
