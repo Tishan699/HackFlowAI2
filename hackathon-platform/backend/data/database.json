@@ -1,0 +1,1471 @@
+{
+  "users": [
+    {
+      "id": "use_1791003055201",
+      "createdAt": "2026-10-03T04:50:55.201Z",
+      "name": "Tamper Tester",
+      "email": "hacker_judge@test.dev",
+      "password": "$2b$10$0XYcj3QxBcdNsEEBj9FedOjvJrUfKLcFhqg/o2EFY0YqRQ0.qdQLG",
+      "role": "participant",
+      "status": "active",
+      "university": "",
+      "organization": "",
+      "skills": "",
+      "bio": "",
+      "avatar": "TA",
+      "isEmailVerified": false,
+      "mfaEnabled": true
+    },
+    {
+      "id": "use_1790850980875",
+      "createdAt": "2026-10-01T10:36:20.875Z",
+      "name": "Dev Tester",
+      "email": "tester@hackflow.dev",
+      "password": "$2b$10$8/w/gEUzxWbYDstgy/v4ZuWDbppQ6n1wpGEYJd9TXAyfG5l6DWtHO",
+      "role": "participant",
+      "avatar": "DE",
+      "isEmailVerified": true,
+      "mfaEnabled": true,
+      "updatedAt": "2026-10-01T10:38:20.711Z",
+      "verifiedAt": "2026-10-01T10:38:20.711Z"
+    },
+    {
+      "id": "u_organizer",
+      "name": "John Doe",
+      "email": "john@hackflow.dev",
+      "password": "$2b$10$uZsLC87ajhr1n.kQAndSV.V1lCThjRpPM5mEapH4AvLdd0I8Zrqt6",
+      "role": "organizer",
+      "organization": "HackFlow Community",
+      "avatar": "JD",
+      "isEmailVerified": true,
+      "mfaEnabled": true,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "u_organizer_2",
+      "name": "Sarah Jenkins",
+      "email": "sarah@apex.io",
+      "password": "$2b$10$uZsLC87ajhr1n.kQAndSV.V1lCThjRpPM5mEapH4AvLdd0I8Zrqt6",
+      "role": "organizer",
+      "organization": "Apex Innovations",
+      "avatar": "SJ",
+      "isEmailVerified": true,
+      "mfaEnabled": true,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "u_organizer_3",
+      "name": "David Kim",
+      "email": "david@cloudguild.dev",
+      "password": "$2b$10$uZsLC87ajhr1n.kQAndSV.V1lCThjRpPM5mEapH4AvLdd0I8Zrqt6",
+      "role": "organizer",
+      "organization": "Cloud Builders Network",
+      "avatar": "DK",
+      "isEmailVerified": true,
+      "mfaEnabled": true,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "u_participant",
+      "name": "Alex Rivera",
+      "email": "alex@neuralninjas.dev",
+      "password": "$2b$10$uZsLC87ajhr1n.kQAndSV.V1lCThjRpPM5mEapH4AvLdd0I8Zrqt6",
+      "role": "participant",
+      "avatar": "AR",
+      "isEmailVerified": true,
+      "mfaEnabled": true,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "u_judge",
+      "name": "Dr. Elena Rostova",
+      "email": "elena@judges.dev",
+      "password": "$2b$10$uZsLC87ajhr1n.kQAndSV.V1lCThjRpPM5mEapH4AvLdd0I8Zrqt6",
+      "role": "judge",
+      "avatar": "ER",
+      "isEmailVerified": true,
+      "mfaEnabled": true,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "u_mentor",
+      "name": "Siddharth Verma",
+      "email": "mentor@cloud.dev",
+      "password": "$2b$10$uZsLC87ajhr1n.kQAndSV.V1lCThjRpPM5mEapH4AvLdd0I8Zrqt6",
+      "role": "mentor",
+      "avatar": "SV",
+      "isEmailVerified": true,
+      "mfaEnabled": true,
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    }
+  ],
+  "otps": [
+    {
+      "id": "otp_1791175937543",
+      "createdAt": "2026-10-05T04:52:17.545Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "928463",
+      "purpose": "resend-verification",
+      "expiresAt": 1791176537543
+    },
+    {
+      "id": "otp_1791175208888",
+      "createdAt": "2026-10-05T04:40:08.888Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "226345",
+      "purpose": "resend-verification",
+      "expiresAt": 1791175808888
+    },
+    {
+      "id": "otp_1791175153186",
+      "createdAt": "2026-10-05T04:39:13.186Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "939158",
+      "purpose": "resend-verification",
+      "expiresAt": 1791175753186
+    },
+    {
+      "id": "otp_1791175118407",
+      "createdAt": "2026-10-05T04:38:38.407Z",
+      "email": "organizer@hackflow.dev",
+      "otp": "253458",
+      "purpose": "resend-verification",
+      "expiresAt": 1791175718406
+    },
+    {
+      "id": "otp_1791122151049",
+      "createdAt": "2026-10-04T13:55:51.050Z",
+      "email": "organizer@hackflow.dev",
+      "otp": "566381",
+      "purpose": "resend-verification",
+      "expiresAt": 1791122751049
+    },
+    {
+      "id": "otp_1791120600286",
+      "createdAt": "2026-10-04T13:30:00.286Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "574069",
+      "purpose": "resend-verification",
+      "expiresAt": 1791121200285
+    },
+    {
+      "id": "otp_1791095636396",
+      "createdAt": "2026-10-04T06:33:56.396Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "590297",
+      "purpose": "resend-verification",
+      "expiresAt": 1791096236396
+    },
+    {
+      "id": "otp_1791095576824",
+      "createdAt": "2026-10-04T06:32:56.826Z",
+      "email": "organizer@hackflow.dev",
+      "otp": "678979",
+      "purpose": "resend-verification",
+      "expiresAt": 1791096176824
+    },
+    {
+      "id": "otp_1791090731906",
+      "createdAt": "2026-10-04T05:12:11.906Z",
+      "email": "tishanarunalu1@gmail.com",
+      "otp": "702173",
+      "purpose": "resend-verification",
+      "expiresAt": 1791091331906
+    },
+    {
+      "id": "otp_1791014141973",
+      "createdAt": "2026-10-03T07:55:41.973Z",
+      "email": "sarah@apex.io",
+      "otp": "745314",
+      "purpose": "login-2fa",
+      "expiresAt": 1791014741973
+    },
+    {
+      "id": "otp_1791014140742",
+      "createdAt": "2026-10-03T07:55:40.742Z",
+      "email": "john@hackflow.dev",
+      "otp": "487142",
+      "purpose": "login-2fa",
+      "expiresAt": 1791014740742
+    },
+    {
+      "id": "otp_1791013597172",
+      "createdAt": "2026-10-03T07:46:37.172Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "343741",
+      "purpose": "resend-verification",
+      "expiresAt": 1791014197171
+    },
+    {
+      "id": "otp_1791003458437",
+      "createdAt": "2026-10-03T04:57:38.437Z",
+      "email": "organizer@hackflow.dev",
+      "otp": "400880",
+      "purpose": "resend-verification",
+      "expiresAt": 1791004058437
+    },
+    {
+      "id": "otp_1791003399284",
+      "createdAt": "2026-10-03T04:56:39.284Z",
+      "email": "john@hackflow.dev",
+      "otp": "350792",
+      "purpose": "resend-verification",
+      "expiresAt": 1791003999284
+    },
+    {
+      "id": "otp_1791003256109",
+      "createdAt": "2026-10-03T04:54:16.109Z",
+      "email": "tishanarunalu1@gmail.com",
+      "otp": "510265",
+      "purpose": "resend-verification",
+      "expiresAt": 1791003856108
+    },
+    {
+      "id": "otp_1791003055194",
+      "createdAt": "2026-10-03T04:50:55.194Z",
+      "email": "hacker_judge@test.dev",
+      "otp": "981329",
+      "purpose": "registration-verification",
+      "expiresAt": 1791003655194
+    },
+    {
+      "id": "otp_1791001016595",
+      "createdAt": "2026-10-03T04:16:56.596Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "644213",
+      "purpose": "resend-verification",
+      "expiresAt": 1791001616595
+    },
+    {
+      "id": "otp_1790853597047",
+      "createdAt": "2026-10-01T11:19:57.047Z",
+      "email": "john@hackflow.dev",
+      "otp": "829391",
+      "purpose": "login-2fa",
+      "expiresAt": 1790854197046
+    },
+    {
+      "id": "otp_1790852372406",
+      "createdAt": "2026-10-01T10:59:32.407Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "915334",
+      "purpose": "resend-verification",
+      "expiresAt": 1790852972406
+    },
+    {
+      "id": "otp_1790851308302",
+      "createdAt": "2026-10-01T10:41:48.302Z",
+      "email": "tishanarunalu435@gmail.com",
+      "otp": "230284",
+      "purpose": "resend-verification",
+      "expiresAt": 1790851908302
+    },
+    {
+      "id": "otp_1790851250385",
+      "createdAt": "2026-10-01T10:40:50.385Z",
+      "email": "alex@neuralninjas.dev",
+      "otp": "166619",
+      "purpose": "login-2fa",
+      "expiresAt": 1790851850385
+    },
+    {
+      "id": "otp_1790851079912",
+      "createdAt": "2026-10-01T10:37:59.912Z",
+      "email": "tester@hackflow.dev",
+      "otp": "601871",
+      "purpose": "registration-verification",
+      "expiresAt": 1790851679912
+    },
+    {
+      "id": "otp_1790850980872",
+      "createdAt": "2026-10-01T10:36:20.872Z",
+      "email": "tester@hackflow.dev",
+      "otp": "344625",
+      "purpose": "registration-verification",
+      "expiresAt": 1790851580871
+    }
+  ],
+  "hackathons": [
+    {
+      "id": "hac_1790920002151",
+      "createdAt": "2026-10-02T05:46:42.151Z",
+      "title": "CodeGen v2.0",
+      "category": "Open Innovation",
+      "date": "Oct 02- Oct 15, 2026",
+      "startDate": "2026-10-02",
+      "endDate": "",
+      "prizePool": "500",
+      "location": "Hybrid",
+      "tagline": "Build the future of technology with AI",
+      "description": "Exciting innovation challenge with cash prizes and global mentorship.",
+      "participants": 0,
+      "maxTeams": 100,
+      "status": "Upcoming",
+      "badge": "Registration Open",
+      "organizerId": "u_organizer",
+      "organizerEmail": "john@hackflow.dev",
+      "organizer": "HackFlow Community",
+      "rules": [
+        "Teams can have 2 to 4 members.",
+        "All code must be authored during the competition period.",
+        "Projects must include a working repository and video demo."
+      ],
+      "timeline": [
+        {
+          "step": "Registration Opens",
+          "date": "Now",
+          "done": true
+        },
+        {
+          "step": "Hack Kickoff",
+          "date": "Oct 02- Oct 15, 2026",
+          "done": false
+        },
+        {
+          "step": "Project Submissions Deadline",
+          "date": "Final Day",
+          "done": false
+        },
+        {
+          "step": "Awards Ceremony",
+          "date": "Final Day, Evening",
+          "done": false
+        }
+      ],
+      "prizes": [
+        {
+          "place": "Grand Champion (1st Place)",
+          "reward": "500 + Cloud Credits"
+        },
+        {
+          "place": "Runner Up (2nd Place)",
+          "reward": "$3,000 Cash"
+        },
+        {
+          "place": "Best Technical Innovation",
+          "reward": "$1,500 Special Award"
+        }
+      ],
+      "eventState": "PUBLISHED"
+    },
+    {
+      "id": "1",
+      "title": "TechFest Sri Lanka 2026",
+      "tagline": "Build innovative AI & cloud solutions for real-world impact.",
+      "description": "Updated operational challenge guidelines for participants.",
+      "date": "Oct 21 2026",
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-17",
+      "participants": 487,
+      "maxTeams": 0,
+      "status": "Active",
+      "badge": "Hack in Progress",
+      "category": "AI & Machine Learning",
+      "prizePool": "$35,000",
+      "location": "Colombo",
+      "organizerId": "u_organizer",
+      "organizerEmail": "john@hackflow.dev",
+      "organizer": "HackFlow Community (John Doe)",
+      "rules": [],
+      "timeline": [
+        {
+          "step": "Registration Closes",
+          "date": "Oct 10, 2026",
+          "done": true
+        },
+        {
+          "step": "Opening Ceremony & Hack Kickoff",
+          "date": "Oct 15, 09:00 AM",
+          "done": false
+        },
+        {
+          "step": "Mentorship Round 1",
+          "date": "Oct 16, 02:00 PM",
+          "done": false
+        },
+        {
+          "step": "Submission Deadline",
+          "date": "Oct 17, 12:00 PM",
+          "done": false
+        },
+        {
+          "step": "Final Demo & Awards",
+          "date": "Oct 17, 05:00 PM",
+          "done": false
+        }
+      ],
+      "prizes": [
+        {
+          "place": "1st Place (Grand Winner)",
+          "reward": "$8,000 + Cloud Credits + Trophy"
+        },
+        {
+          "place": "2nd Place (Runner-up)",
+          "reward": "$4,500 + Fast-track Incubation"
+        },
+        {
+          "place": "3rd Place",
+          "reward": "$2,500 + Developer Perks"
+        },
+        {
+          "place": "Best AI Innovation",
+          "reward": "Special $1,000 NVIDIA Grant"
+        }
+      ],
+      "updatedAt": "2026-10-03T07:09:53.341Z",
+      "eventState": "ONGOING",
+      "changeReason": "Sponsor tripled the prize pool for top AI models"
+    },
+    {
+      "id": "2",
+      "title": "AI Innovation Challenge",
+      "tagline": "Create AI-powered autonomous agents and predictive tools.",
+      "description": "A 48-hour intense sprint focusing on Generative AI, autonomous agents, computer vision, and NLP applications that redefine digital workflows.",
+      "date": "Nov 05 - Nov 07, 2026",
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-07",
+      "participants": 215,
+      "maxTeams": 80,
+      "status": "Upcoming",
+      "badge": "Registration Open",
+      "category": "Artificial Intelligence",
+      "prizePool": "$10,000",
+      "location": "Virtual / Global",
+      "organizerId": "u_organizer_2",
+      "organizerEmail": "sarah@apex.io",
+      "organizer": "Apex Innovations (Sarah Jenkins)",
+      "rules": [
+        "Teams of 1 to 4 members.",
+        "Core AI pipeline must be demonstrated live.",
+        "Full API documentation and README required."
+      ],
+      "timeline": [
+        {
+          "step": "Registration Deadline",
+          "date": "Nov 01, 2026",
+          "done": false
+        },
+        {
+          "step": "Hackathon Begins",
+          "date": "Nov 05, 10:00 AM",
+          "done": false
+        },
+        {
+          "step": "Judging Period",
+          "date": "Nov 07, 03:00 PM",
+          "done": false
+        }
+      ],
+      "prizes": [
+        {
+          "place": "Champion",
+          "reward": "$6,000 + GPU Credits"
+        },
+        {
+          "place": "Runner Up",
+          "reward": "$3,000"
+        },
+        {
+          "place": "Community Choice",
+          "reward": "$1,000"
+        }
+      ],
+      "updatedAt": "2026-10-02T05:44:27.594Z",
+      "eventState": "PUBLISHED"
+    },
+    {
+      "id": "3",
+      "title": "Cloud Native Hack 2026",
+      "tagline": "Build scalable cloud-native microservices and serverless architectures.",
+      "description": "Design resilient distributed systems, Kubernetes automation, and high-performance serverless backends engineered for massive scale.",
+      "date": "Dec 01 - Dec 03, 2026",
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-03",
+      "participants": 134,
+      "maxTeams": 60,
+      "status": "Upcoming",
+      "badge": "Upcoming",
+      "category": "Cloud & DevOps",
+      "prizePool": "$8,000",
+      "location": "Hybrid (Kandy & Online)",
+      "organizerId": "u_organizer_3",
+      "organizerEmail": "david@cloudguild.dev",
+      "organizer": "Cloud Builders Network (David Kim)",
+      "rules": [
+        "Infrastructure must be deployable via IaC or containerized.",
+        "Zero downtime architectures receive bonus points."
+      ],
+      "timeline": [
+        {
+          "step": "Registration",
+          "date": "Nov 20, 2026",
+          "done": false
+        },
+        {
+          "step": "Hacking Starts",
+          "date": "Dec 01, 2026",
+          "done": false
+        }
+      ],
+      "prizes": [
+        {
+          "place": "Grand Prize",
+          "reward": "$5,000"
+        },
+        {
+          "place": "Best DevOps Pipeline",
+          "reward": "$3,000"
+        }
+      ],
+      "eventState": "PUBLISHED"
+    }
+  ],
+  "teams": [
+    {
+      "id": "t1",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "name": "NeuralNinjas",
+      "leader": "Alex Rivera",
+      "leaderEmail": "alex@neuralninjas.dev",
+      "members": [
+        {
+          "name": "Alex Rivera",
+          "role": "Team Lead & ML Engineer"
+        },
+        {
+          "name": "Sarah Chen",
+          "role": "Fullstack Developer"
+        },
+        {
+          "name": "Devon Miles",
+          "role": "UI/UX Designer"
+        }
+      ],
+      "projectTitle": "MedVision AI Diagnostics",
+      "status": "Submitted",
+      "checkedIn": true,
+      "checkInTime": "07:37 PM",
+      "updatedAt": "2026-10-04T14:07:10.369Z"
+    },
+    {
+      "id": "t2",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "name": "QuantumLeap",
+      "leader": "Priya Sharma",
+      "leaderEmail": "priya@example.com",
+      "members": [
+        {
+          "name": "Priya Sharma",
+          "role": "Lead Architect"
+        },
+        {
+          "name": "Marcus Vance",
+          "role": "Backend Engineer"
+        }
+      ],
+      "projectTitle": "EcoGrid Smart Energy Router",
+      "status": "In Progress",
+      "checkedIn": false,
+      "checkInTime": null,
+      "updatedAt": "2026-10-04T13:50:47.380Z"
+    },
+    {
+      "id": "t3",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "name": "ByteCraft",
+      "leader": "Kavinda Perera",
+      "leaderEmail": "kavinda@example.com",
+      "members": [
+        {
+          "name": "Kavinda Perera",
+          "role": "Frontend Dev"
+        },
+        {
+          "name": "Amara Silva",
+          "role": "Data Scientist"
+        },
+        {
+          "name": "Nimal Fernando",
+          "role": "Product Manager"
+        },
+        {
+          "name": "Ruwan Dias",
+          "role": "Mobile Dev"
+        }
+      ],
+      "projectTitle": "AgriFlow Harvest Predictor",
+      "status": "Submitted",
+      "checkedIn": true,
+      "checkInTime": "12:17 PM",
+      "updatedAt": "2026-10-02T06:47:12.207Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "pro_1790851125297",
+      "createdAt": "2026-10-01T10:38:45.297Z",
+      "title": "Autonomous Drone Fleet Navigator",
+      "teamName": "SkyBots",
+      "teamId": "t_general",
+      "hackathonId": "1",
+      "description": "AI-powered swarm navigation system for disaster relief and medical supplies delivery.",
+      "githubUrl": "https://github.com/skybots/drone-fleet",
+      "demoUrl": "https://skybots-demo.app",
+      "videoUrl": "",
+      "techStack": [
+        "Python",
+        "ROS2",
+        "React",
+        "FastAPI",
+        "YOLOv8"
+      ],
+      "submittedAt": "2026-10-01 10:38",
+      "status": "Evaluated",
+      "aiScore": 92,
+      "aiFeedback": "Strong modular code architecture and well-defined API boundaries. Excellent integration of Python, ROS2, React. Demo shows great clinical/user viability.",
+      "judgeScores": {
+        "innovation": 9.4,
+        "technicalExecution": 9.4,
+        "design": 9.3,
+        "impact": 8.8
+      },
+      "totalScore": 92
+    },
+    {
+      "id": "sub-1",
+      "hackathonId": "1",
+      "teamId": "t1",
+      "teamName": "NeuralNinjas",
+      "title": "MedVision AI Diagnostics",
+      "description": "An automated multimodal medical imaging diagnostic assistant running lightweight vision-language models for rapid rural clinic triage.",
+      "githubUrl": "https://github.com/neuralninjas/medvision-ai",
+      "demoUrl": "https://medvision-demo.app",
+      "videoUrl": "https://youtube.com/watch?v=demo123",
+      "techStack": [
+        "PyTorch",
+        "FastAPI",
+        "React",
+        "Docker",
+        "TailwindCSS"
+      ],
+      "submittedAt": "2026-10-16 18:42",
+      "status": "Evaluated",
+      "aiScore": 92,
+      "aiFeedback": "Strong architectural design and real-world clinical viability. Clear demonstration of low-latency inference. Minor improvement needed on edge device caching.",
+      "judgeScores": {
+        "innovation": 9.8,
+        "technicalExecution": 9.5,
+        "design": 9,
+        "impact": 9.7
+      },
+      "totalScore": 95,
+      "files": [
+        {
+          "id": "f_1",
+          "originalName": "MedVision_Pitch_Deck_Final.pdf",
+          "size": 4718592,
+          "sizeFormatted": "4.50 MB",
+          "isPdf": true,
+          "mimetype": "application/pdf",
+          "url": "#"
+        },
+        {
+          "id": "f_2",
+          "originalName": "Architecture_Overview.png",
+          "size": 1887436,
+          "sizeFormatted": "1.80 MB",
+          "isPdf": false,
+          "mimetype": "image/png",
+          "url": "#"
+        }
+      ],
+      "judgeFeedback": "Phenomenal multimodal triage implementation.",
+      "judgeId": "u_judge",
+      "judgeName": "Dr. Elena Rostova",
+      "judgeEmail": "elena@judges.dev",
+      "judgedAt": "2026-10-03T04:50:55.351Z",
+      "updatedAt": "2026-10-03T04:50:55.352Z"
+    },
+    {
+      "id": "sub-2",
+      "hackathonId": "1",
+      "teamId": "t3",
+      "teamName": "ByteCraft",
+      "title": "AgriFlow Harvest Predictor",
+      "description": "Hyper-local weather telemetry and soil satellite imagery analysis platform empowering smallholder farmers to prevent crop losses.",
+      "githubUrl": "https://github.com/bytecraft/agriflow",
+      "demoUrl": "https://agriflow-test.dev",
+      "videoUrl": "https://youtube.com/watch?v=agri456",
+      "techStack": [
+        "Node.js",
+        "Python",
+        "React",
+        "MongoDB",
+        "Sentinel Satellite API"
+      ],
+      "submittedAt": "2026-10-16 21:15",
+      "status": "In Review",
+      "aiScore": 88,
+      "aiFeedback": "Excellent social impact and telemetry integration. API error handling could be strengthened during connectivity dropouts.",
+      "judgeScores": {
+        "innovation": 8.8,
+        "technicalExecution": 8.5,
+        "design": 8.7,
+        "impact": 9.2
+      },
+      "totalScore": 88,
+      "files": [
+        {
+          "id": "f_3",
+          "originalName": "AgriFlow_System_Architecture_Doc.pdf",
+          "size": 3670016,
+          "sizeFormatted": "3.50 MB",
+          "isPdf": true,
+          "mimetype": "application/pdf",
+          "url": "#"
+        }
+      ]
+    }
+  ],
+  "judges": [
+    {
+      "id": "j1",
+      "name": "Dr. Elena Rostova",
+      "role": "Senior AI Researcher at DeepTech Labs",
+      "expertise": "Machine Learning, Computer Vision",
+      "assignedSubmissions": 5,
+      "completedEvaluations": 4,
+      "avatar": "ER"
+    },
+    {
+      "id": "j2",
+      "name": "Tariq Mansoor",
+      "role": "VP of Engineering at CloudScale",
+      "expertise": "Cloud Architecture, DevOps, Scalability",
+      "assignedSubmissions": 6,
+      "completedEvaluations": 6,
+      "avatar": "TM"
+    },
+    {
+      "id": "j3",
+      "name": "Ayesha Jayawardena",
+      "role": "Design Lead & Founder",
+      "expertise": "UI/UX, Product Strategy, Accessibility",
+      "assignedSubmissions": 5,
+      "completedEvaluations": 3,
+      "avatar": "AJ"
+    }
+  ],
+  "mentors": [
+    {
+      "id": "m1",
+      "name": "Siddharth Verma",
+      "company": "Google Cloud",
+      "specialty": "Cloud Architecture & Kubernetes",
+      "availability": "Available Now",
+      "slots": [
+        "Today 3:00 PM",
+        "Today 5:30 PM",
+        "Tomorrow 10:00 AM"
+      ],
+      "bio": "Ex-DevOps Lead with 10+ years mentoring hackathon champions worldwide."
+    },
+    {
+      "id": "m2",
+      "name": "Chloe Dupont",
+      "company": "Hugging Face Contributor",
+      "specialty": "LLMs, RAG & Fine-Tuning",
+      "availability": "In Session",
+      "slots": [
+        "Tomorrow 11:30 AM",
+        "Tomorrow 2:00 PM"
+      ],
+      "bio": "Passionate about making open source AI accessible to all developers."
+    },
+    {
+      "id": "m3",
+      "name": "Kasun Bandara",
+      "company": "FinTech Innovation Hub",
+      "specialty": "Fullstack Architecture & Security",
+      "availability": "Available Now",
+      "slots": [
+        "Today 4:00 PM",
+        "Today 7:00 PM"
+      ],
+      "bio": "Built scalable payment gateways handling millions of requests daily."
+    }
+  ],
+  "mentorBookings": [],
+  "emails": [
+    {
+      "id": "ema_1791175937559",
+      "createdAt": "2026-10-05T04:52:17.559Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "Verify your HackFlow account - Security Code: 928463",
+      "otp": "928463",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-05T04:52:17.559Z"
+    },
+    {
+      "id": "ema_1791175208895",
+      "createdAt": "2026-10-05T04:40:08.895Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "Verify your HackFlow account - Security Code: 226345",
+      "otp": "226345",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-05T04:40:08.895Z"
+    },
+    {
+      "id": "ema_1791175153190",
+      "createdAt": "2026-10-05T04:39:13.190Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "Verify your HackFlow account - Security Code: 939158",
+      "otp": "939158",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-05T04:39:13.190Z"
+    },
+    {
+      "id": "ema_1791175118414",
+      "createdAt": "2026-10-05T04:38:38.414Z",
+      "to": "organizer@hackflow.dev",
+      "subject": "Verify your HackFlow account - Security Code: 253458",
+      "otp": "253458",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-05T04:38:38.414Z"
+    },
+    {
+      "id": "ema_1791122151121",
+      "createdAt": "2026-10-04T13:55:51.121Z",
+      "to": "organizer@hackflow.dev",
+      "subject": "Verify your HackFlow account - Security Code: 566381",
+      "otp": "566381",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-04T13:55:51.121Z"
+    },
+    {
+      "id": "ema_1791120600293",
+      "createdAt": "2026-10-04T13:30:00.293Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "Verify your HackFlow account - Security Code: 574069",
+      "otp": "574069",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-04T13:30:00.293Z"
+    },
+    {
+      "id": "ema_1791095636399",
+      "createdAt": "2026-10-04T06:33:56.400Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "Verify your HackFlow account - Security Code: 590297",
+      "otp": "590297",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-04T06:33:56.399Z"
+    },
+    {
+      "id": "ema_1791095576856",
+      "createdAt": "2026-10-04T06:32:56.856Z",
+      "to": "organizer@hackflow.dev",
+      "subject": "Verify your HackFlow account - Security Code: 678979",
+      "otp": "678979",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-04T06:32:56.856Z"
+    },
+    {
+      "id": "ema_1791090731910",
+      "createdAt": "2026-10-04T05:12:11.910Z",
+      "to": "tishanarunalu1@gmail.com",
+      "subject": "Verify your HackFlow account - Security Code: 702173",
+      "otp": "702173",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-04T05:12:11.910Z"
+    },
+    {
+      "id": "ema_1791014141992",
+      "createdAt": "2026-10-03T07:55:41.992Z",
+      "to": "sarah@apex.io",
+      "subject": "HackFlow 2FA Login Security Code: 745314",
+      "otp": "745314",
+      "purpose": "login-2fa",
+      "sentAt": "2026-10-03T07:55:41.992Z"
+    },
+    {
+      "id": "ema_1791014140930",
+      "createdAt": "2026-10-03T07:55:40.930Z",
+      "to": "john@hackflow.dev",
+      "subject": "HackFlow 2FA Login Security Code: 487142",
+      "otp": "487142",
+      "purpose": "login-2fa",
+      "sentAt": "2026-10-03T07:55:40.930Z"
+    },
+    {
+      "id": "ema_1791013597179",
+      "createdAt": "2026-10-03T07:46:37.179Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "Verify your HackFlow account - Security Code: 343741",
+      "otp": "343741",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-03T07:46:37.179Z"
+    },
+    {
+      "id": "ema_1791003458440",
+      "createdAt": "2026-10-03T04:57:38.440Z",
+      "to": "organizer@hackflow.dev",
+      "subject": "🔐 Verify your HackFlow account - Security Code: 400880",
+      "otp": "400880",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-03T04:57:38.440Z"
+    },
+    {
+      "id": "ema_1791003399291",
+      "createdAt": "2026-10-03T04:56:39.291Z",
+      "to": "john@hackflow.dev",
+      "subject": "🔐 Verify your HackFlow account - Security Code: 350792",
+      "otp": "350792",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-03T04:56:39.291Z"
+    },
+    {
+      "id": "ema_1791003256113",
+      "createdAt": "2026-10-03T04:54:16.113Z",
+      "to": "tishanarunalu1@gmail.com",
+      "subject": "🔐 Verify your HackFlow account - Security Code: 510265",
+      "otp": "510265",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-03T04:54:16.113Z"
+    },
+    {
+      "id": "ema_1791003055204",
+      "createdAt": "2026-10-03T04:50:55.204Z",
+      "to": "hacker_judge@test.dev",
+      "subject": "🔐 Verify your HackFlow account - Security Code: 981329",
+      "otp": "981329",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-03T04:50:55.204Z"
+    },
+    {
+      "id": "ema_1791001016599",
+      "createdAt": "2026-10-03T04:16:56.599Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "🔐 Verify your HackFlow account - Security Code: 644213",
+      "otp": "644213",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-03T04:16:56.599Z"
+    },
+    {
+      "id": "ema_1790853597051",
+      "createdAt": "2026-10-01T11:19:57.051Z",
+      "to": "john@hackflow.dev",
+      "subject": "🛡️ HackFlow 2FA Login Security Code: 829391",
+      "otp": "829391",
+      "purpose": "login-2fa",
+      "sentAt": "2026-10-01T11:19:57.051Z"
+    },
+    {
+      "id": "ema_1790852372409",
+      "createdAt": "2026-10-01T10:59:32.409Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "🔐 Verify your HackFlow account - Security Code: 915334",
+      "otp": "915334",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-01T10:59:32.409Z"
+    },
+    {
+      "id": "ema_1790851308303",
+      "createdAt": "2026-10-01T10:41:48.303Z",
+      "to": "tishanarunalu435@gmail.com",
+      "subject": "🔐 Verify your HackFlow account - Security Code: 230284",
+      "otp": "230284",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-01T10:41:48.303Z"
+    },
+    {
+      "id": "ema_1790851250387",
+      "createdAt": "2026-10-01T10:40:50.387Z",
+      "to": "alex@neuralninjas.dev",
+      "subject": "🛡️ HackFlow 2FA Login Security Code: 166619",
+      "otp": "166619",
+      "purpose": "login-2fa",
+      "sentAt": "2026-10-01T10:40:50.387Z"
+    },
+    {
+      "id": "ema_1790851079916",
+      "createdAt": "2026-10-01T10:37:59.916Z",
+      "to": "tester@hackflow.dev",
+      "subject": "🔐 Verify your HackFlow account - Security Code: 601871",
+      "otp": "601871",
+      "purpose": "registration-verification",
+      "sentAt": "2026-10-01T10:37:59.916Z"
+    }
+  ],
+  "hackathonMembers": [
+    {
+      "id": "hm_1",
+      "hackathonId": "1",
+      "userId": "u_organizer",
+      "userEmail": "john@hackflow.dev",
+      "userName": "John Doe",
+      "role": "ORGANIZER",
+      "status": "ACTIVE",
+      "source": "CREATOR",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "hm_2",
+      "hackathonId": "2",
+      "userId": "u_organizer_2",
+      "userEmail": "sarah@apex.io",
+      "userName": "Sarah Jenkins",
+      "role": "ORGANIZER",
+      "status": "ACTIVE",
+      "source": "CREATOR",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "hm_3",
+      "hackathonId": "3",
+      "userId": "u_organizer_3",
+      "userEmail": "david@cloudguild.dev",
+      "userName": "David Kim",
+      "role": "ORGANIZER",
+      "status": "ACTIVE",
+      "source": "CREATOR",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "hm_4",
+      "hackathonId": "1",
+      "userId": "u_participant",
+      "userEmail": "alex@neuralninjas.dev",
+      "userName": "Alex Rivera",
+      "role": "PARTICIPANT",
+      "status": "ACTIVE",
+      "source": "REGISTRATION",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "hm_5",
+      "hackathonId": "1",
+      "userId": "u_judge",
+      "userEmail": "elena@judges.dev",
+      "userName": "Dr. Elena Rostova",
+      "role": "JUDGE",
+      "status": "ACTIVE",
+      "source": "APPROVED_APPLICATION",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    },
+    {
+      "id": "hm_6",
+      "hackathonId": "1",
+      "userId": "u_judge_2",
+      "userEmail": "tariq@cloudscale.io",
+      "userName": "Tariq Mansoor",
+      "role": "JUDGE",
+      "status": "ACTIVE",
+      "source": "ORGANIZER_INVITE",
+      "createdAt": "2026-10-01T08:00:00.000Z"
+    }
+  ],
+  "judgeApplications": [
+    {
+      "id": "jud_1791003055365",
+      "createdAt": "2026-10-03T04:50:55.365Z",
+      "userId": "u_participant",
+      "name": "Alex Rivera",
+      "email": "alex@neuralninjas.dev",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "experienceYears": 8,
+      "organization": "Cambridge AI Lab",
+      "title": "Senior Deep Learning Fellow",
+      "expertise": "Machine Learning, PyTorch, Computer Vision, Cloud Systems",
+      "linkedinUrl": "",
+      "portfolioUrl": "",
+      "previousJudging": "Judged CVPR Hackathon and AI Global sprint",
+      "reason": "Passionate about mentoring young engineers and evaluating technical rigor.",
+      "status": "PENDING",
+      "aiEvaluation": {
+        "evaluatedAt": "2026-10-03T04:50:55.364Z",
+        "compositeScore": 93,
+        "domainExpertise": "High",
+        "domainScore": 88,
+        "previousExperience": "High",
+        "experienceScore": 96,
+        "relevantSkills": "High",
+        "skillsScore": 95,
+        "previousJudgingRating": "High",
+        "profileCompleteness": 85,
+        "detectedDomains": [
+          "Machine Learning",
+          "Cloud & Systems"
+        ],
+        "aiRecommendation": "Highly qualified candidate with 8+ years seniority. Strongly recommended for technical and architecture evaluation focusing on Machine Learning & Cloud & Systems.",
+        "suitability": "Strongly Recommended",
+        "badgeColor": "emerald",
+        "isSeniorRole": true
+      }
+    },
+    {
+      "id": "ja_1",
+      "userId": "u_applicant_dr_marcus",
+      "name": "Dr. Marcus Thorne",
+      "email": "marcus.thorne@oxford-ai.org",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "experienceYears": 9,
+      "organization": "Oxford AI & Robotics Institute",
+      "title": "Principal Research Scientist",
+      "expertise": "Machine Learning, Computer Vision, Robotics, Edge AI",
+      "linkedinUrl": "https://linkedin.com/in/marcus-thorne-ai",
+      "portfolioUrl": "https://marcusthorne.dev",
+      "previousJudging": "Judged NeurIPS Hackathon 2024, MIT HackNation, and Global AI Sprint.",
+      "reason": "Passionate about evaluating production viability and deep learning rigor in emerging multimodal healthcare applications.",
+      "status": "PENDING",
+      "aiEvaluation": {
+        "evaluatedAt": "2026-10-02T10:15:00.000Z",
+        "compositeScore": 94,
+        "domainExpertise": "High",
+        "domainScore": 95,
+        "previousExperience": "High",
+        "experienceScore": 96,
+        "relevantSkills": "High",
+        "skillsScore": 95,
+        "profileCompleteness": 98,
+        "detectedDomains": [
+          "Machine Learning",
+          "Cloud & Systems"
+        ],
+        "aiRecommendation": "Highly qualified candidate with 9+ years seniority. Strongly recommended for technical and architecture evaluation focusing on Machine Learning & Cloud.",
+        "suitability": "Strongly Recommended",
+        "badgeColor": "emerald"
+      },
+      "createdAt": "2026-10-02T10:14:00.000Z"
+    },
+    {
+      "id": "ja_2",
+      "userId": "u_applicant_kavindi",
+      "name": "Kavindi Jayasuriya",
+      "email": "kavindi.j@fintechlab.io",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "experienceYears": 6,
+      "organization": "PayStream Global",
+      "title": "Senior Fullstack & Security Lead",
+      "expertise": "Fullstack Architecture, API Security, Cloud, Microservices",
+      "linkedinUrl": "https://linkedin.com/in/kavindij",
+      "portfolioUrl": "https://github.com/kavindi-j",
+      "previousJudging": "Served on panel for Colombo CodeFest 2025.",
+      "reason": "Keen to provide technical feedback on scalable web architectures and real-time backend reliability.",
+      "status": "PENDING",
+      "aiEvaluation": {
+        "evaluatedAt": "2026-10-02T14:30:00.000Z",
+        "compositeScore": 88,
+        "domainExpertise": "High",
+        "domainScore": 88,
+        "previousExperience": "High",
+        "experienceScore": 90,
+        "relevantSkills": "High",
+        "skillsScore": 88,
+        "profileCompleteness": 92,
+        "detectedDomains": [
+          "Fullstack & Web",
+          "Cloud & Systems"
+        ],
+        "aiRecommendation": "Solid background with relevant industry experience. Well-suited for architecture and fullstack evaluation.",
+        "suitability": "Strongly Recommended",
+        "badgeColor": "emerald"
+      },
+      "createdAt": "2026-10-02T14:28:00.000Z"
+    }
+  ],
+  "judgeInvitations": [
+    {
+      "id": "ji_1",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "email": "expert.judge@techcorp.com",
+      "judgeName": "Sarah Chen, PhD",
+      "roleDescription": "Lead Systems Architect at TechCorp",
+      "expertise": "Distributed Systems & Kubernetes",
+      "invitedBy": "u_organizer",
+      "invitedByEmail": "john@hackflow.dev",
+      "token": "inv_token_techfest_sarah_2026",
+      "status": "PENDING",
+      "createdAt": "2026-10-02T09:00:00.000Z"
+    }
+  ],
+  "eventChangeHistory": [
+    {
+      "id": "eve_1791011393354",
+      "createdAt": "2026-10-03T07:09:53.354Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_admin",
+      "organizerName": "Platform Admin",
+      "field": "eventState",
+      "beforeValue": "REGISTRATION_CLOSED",
+      "afterValue": "ONGOING",
+      "reason": "Event state transition to ONGOING",
+      "status": "AUTO_APPLIED",
+      "changedAt": "2026-10-03T07:09:53.354Z"
+    },
+    {
+      "id": "eve_1791011393337",
+      "createdAt": "2026-10-03T07:09:53.337Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_admin",
+      "organizerName": "Platform Admin",
+      "field": "eventState",
+      "beforeValue": "ONGOING",
+      "afterValue": "REGISTRATION_CLOSED",
+      "reason": "Event state transition to REGISTRATION_CLOSED",
+      "status": "AUTO_APPLIED",
+      "changedAt": "2026-10-03T07:09:53.337Z"
+    },
+    {
+      "id": "eve_1791011374202",
+      "createdAt": "2026-10-03T07:09:34.202Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_admin",
+      "organizerName": "Platform Admin",
+      "field": "eventState",
+      "beforeValue": "REGISTRATION_CLOSED",
+      "afterValue": "ONGOING",
+      "reason": "Event state transition to ONGOING",
+      "status": "AUTO_APPLIED",
+      "changedAt": "2026-10-03T07:09:34.202Z"
+    },
+    {
+      "id": "eve_1791011374175",
+      "createdAt": "2026-10-03T07:09:34.175Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_admin",
+      "organizerName": "Platform Admin",
+      "field": "eventState",
+      "beforeValue": "ONGOING",
+      "afterValue": "REGISTRATION_CLOSED",
+      "reason": "Event state transition to REGISTRATION_CLOSED",
+      "status": "AUTO_APPLIED",
+      "changedAt": "2026-10-03T07:09:34.175Z"
+    },
+    {
+      "id": "eve_1791011374134",
+      "createdAt": "2026-10-03T07:09:34.134Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_organizer",
+      "organizerName": "John Doe",
+      "field": "prizePool",
+      "beforeValue": "0",
+      "afterValue": "$35,000",
+      "reason": "Sponsor tripled the prize pool for top AI models",
+      "status": "APPROVED",
+      "aiAnalysis": {
+        "isSensitive": true,
+        "requiresApproval": true,
+        "riskLevel": "LOW",
+        "impactSummary": "Prize pool increased from 0 to $35,000. Favorable change for 487 registered participants.",
+        "aiRecommendation": "Positive incentive change. Safe for expedited platform approval.",
+        "recommendation": "Positive incentive change. Safe for expedited platform approval.",
+        "analyzedAt": "2026-10-03T07:09:34.134Z"
+      },
+      "changedAt": "2026-10-03T07:09:34.134Z",
+      "reviewedBy": "Platform Admin",
+      "reviewedAt": "2026-10-03T07:09:34.144Z",
+      "reviewNotes": "Approved by executive admin team.",
+      "updatedAt": "2026-10-03T07:09:34.145Z"
+    },
+    {
+      "id": "eve_1791011264467",
+      "createdAt": "2026-10-03T07:07:44.467Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_admin",
+      "organizerName": "Platform Admin",
+      "field": "eventState",
+      "beforeValue": "REGISTRATION_CLOSED",
+      "afterValue": "ONGOING",
+      "reason": "Event state transition to ONGOING",
+      "status": "AUTO_APPLIED",
+      "changedAt": "2026-10-03T07:07:44.467Z"
+    },
+    {
+      "id": "eve_1791011264446",
+      "createdAt": "2026-10-03T07:07:44.446Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_admin",
+      "organizerName": "Platform Admin",
+      "field": "eventState",
+      "beforeValue": "PUBLISHED",
+      "afterValue": "REGISTRATION_CLOSED",
+      "reason": "Event state transition to REGISTRATION_CLOSED",
+      "status": "AUTO_APPLIED",
+      "changedAt": "2026-10-03T07:07:44.446Z"
+    },
+    {
+      "id": "eve_1791011264380",
+      "createdAt": "2026-10-03T07:07:44.380Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_organizer",
+      "organizerName": "John Doe",
+      "field": "changeReason",
+      "afterValue": "Sponsor tripled the prize pool for top AI models",
+      "reason": "Sponsor tripled the prize pool for top AI models",
+      "status": "AUTO_APPLIED",
+      "changedAt": "2026-10-03T07:07:44.380Z"
+    },
+    {
+      "id": "eve_1791011264378",
+      "createdAt": "2026-10-03T07:07:44.378Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_organizer",
+      "organizerName": "John Doe",
+      "field": "prizePool",
+      "beforeValue": "0",
+      "afterValue": "$35,000",
+      "reason": "Sponsor tripled the prize pool for top AI models",
+      "status": "PENDING_APPROVAL",
+      "aiAnalysis": {
+        "isSensitive": true,
+        "requiresApproval": true,
+        "riskLevel": "LOW",
+        "impactSummary": "Prize pool increased from 0 to $35,000. Favorable change for 487 registered participants.",
+        "aiRecommendation": "Positive incentive change. Safe for expedited platform approval.",
+        "analyzedAt": "2026-10-03T07:07:44.378Z"
+      },
+      "changedAt": "2026-10-03T07:07:44.378Z"
+    },
+    {
+      "id": "eve_1791011264371",
+      "createdAt": "2026-10-03T07:07:44.372Z",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_organizer",
+      "organizerName": "John Doe",
+      "field": "description",
+      "beforeValue": "Sri Lanka's flagship national hackathon bringing together over 500+ developers, designers, and innovators to solve critical challenges in healthcare, education, and fintech.",
+      "afterValue": "Updated operational challenge guidelines for participants.",
+      "reason": "Sponsor tripled the prize pool for top AI models",
+      "status": "AUTO_APPLIED",
+      "changedAt": "2026-10-03T07:07:44.371Z"
+    },
+    {
+      "id": "chg_1",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_organizer",
+      "organizerName": "John Doe",
+      "field": "prizePool",
+      "beforeValue": "$10,000",
+      "afterValue": "$15,000",
+      "reason": "Secured extra sponsor grant from NVIDIA and Cloud Builders Network.",
+      "status": "APPROVED",
+      "changedAt": "2026-10-02T10:42:00.000Z",
+      "reviewedBy": "Platform Admin",
+      "reviewedAt": "2026-10-02T11:00:00.000Z",
+      "reviewNotes": "Prize pool increase verified and funded. Approved.",
+      "aiAnalysis": {
+        "riskLevel": "LOW",
+        "impactSummary": "Prize pool increased from $10,000 to $15,000 with 487 registered participants. Positive community incentive.",
+        "aiRecommendation": "Safe for expedited platform approval."
+      }
+    },
+    {
+      "id": "chg_2",
+      "hackathonId": "1",
+      "hackathonTitle": "TechFest Sri Lanka 2026",
+      "organizerId": "u_organizer",
+      "organizerName": "John Doe",
+      "field": "endDate",
+      "beforeValue": "2026-10-17",
+      "afterValue": "2026-10-18",
+      "reason": "Extending hack duration by 24h to allow teams extra model training and testing time.",
+      "status": "PENDING_APPROVAL",
+      "changedAt": "2026-10-03T08:30:00.000Z",
+      "aiAnalysis": {
+        "riskLevel": "MEDIUM",
+        "impactSummary": "Event timeline extended by 1 day for 487 registered participants.",
+        "aiRecommendation": "Beneficial to engineering teams; verify hybrid venue booking."
+      }
+    }
+  ],
+  "organizerApplications": [
+    {
+      "id": "org_1791011393370",
+      "createdAt": "2026-10-03T07:09:53.370Z",
+      "userId": "u_applicant_1791011393369",
+      "name": "Nadia Thorne",
+      "email": "host_1791011393369@quantum-ai.dev",
+      "organizationName": "Quantum AI Developers Club",
+      "website": "https://quantum-ai.dev",
+      "officialEmail": "host_1791011393369@quantum-ai.dev",
+      "contactPhone": "",
+      "pastEvents": "Hosted 3 university hackathons with 200+ students",
+      "proposal": "Global Quantum Machine Learning Sprint focused on quantum neural networks.",
+      "estimatedParticipants": 250,
+      "status": "PENDING",
+      "aiEvaluation": {
+        "evaluatedAt": "2026-10-03T07:09:53.370Z",
+        "credibilityScore": 90,
+        "score": 90,
+        "riskLevel": "LOW",
+        "suitability": "Strongly Recommended",
+        "summary": "Strongly Recommended",
+        "aiRecommendation": "Established entity (Quantum AI Developers Club) with verified online presence and prior event track record. Low fraud risk.",
+        "recommendation": "Established entity (Quantum AI Developers Club) with verified online presence and prior event track record. Low fraud risk.",
+        "isOfficialDomain": false
+      }
+    },
+    {
+      "id": "org_1791011264492",
+      "createdAt": "2026-10-03T07:07:44.492Z",
+      "userId": "u_new_participant",
+      "name": "Nadia Thorne",
+      "email": "host@quantum-ai.dev",
+      "organizationName": "Quantum AI Developers Club",
+      "website": "https://quantum-ai.dev",
+      "officialEmail": "host@quantum-ai.dev",
+      "contactPhone": "",
+      "pastEvents": "Hosted 3 university hackathons with 200+ students",
+      "proposal": "Global Quantum Machine Learning Sprint focused on quantum neural networks.",
+      "estimatedParticipants": 250,
+      "status": "PENDING",
+      "aiEvaluation": {
+        "evaluatedAt": "2026-10-03T07:07:44.492Z",
+        "credibilityScore": 90,
+        "riskLevel": "LOW",
+        "suitability": "Strongly Recommended",
+        "aiRecommendation": "Established entity (Quantum AI Developers Club) with verified online presence and prior event track record. Low fraud risk.",
+        "isOfficialDomain": false
+      }
+    },
+    {
+      "id": "oa_1",
+      "userId": "u_applicant_org",
+      "name": "Nimali Rathnayake",
+      "email": "nimali@cybersprint.org",
+      "organizationName": "CyberSprint Sri Lanka",
+      "website": "https://cybersprint.org",
+      "officialEmail": "nimali@cybersprint.org",
+      "contactPhone": "+94 77 123 4567",
+      "pastEvents": "Hosted 3 national collegiate CTFs and Lanka CyberDef 2025 with 300+ students.",
+      "proposal": "Planning Lanka AI Shield 2026 - an offensive-defensive AI cybersecurity sprint focused on secure LLM deployment.",
+      "estimatedParticipants": 250,
+      "status": "PENDING",
+      "aiEvaluation": {
+        "credibilityScore": 90,
+        "riskLevel": "LOW",
+        "suitability": "Strongly Recommended",
+        "aiRecommendation": "Established entity with verified online presence, institutional email, and prior event track record. Low fraud risk."
+      },
+      "createdAt": "2026-10-03T07:15:00.000Z"
+    }
+  ]
+}
