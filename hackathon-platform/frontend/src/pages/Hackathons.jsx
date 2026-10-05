@@ -268,7 +268,11 @@ export default function Hackathons() {
       ) : filteredHackathons.length > 0 ? (
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filteredHackathons.map((hackathon) => (
-            <HackathonCard key={hackathon.id} hackathon={hackathon} />
+            <HackathonCard
+              key={hackathon.id}
+              hackathon={hackathon}
+              onDeleted={(deletedId) => setHackathons((prev) => prev.filter((h) => String(h.id) !== String(deletedId)))}
+            />
           ))}
         </div>
       ) : (

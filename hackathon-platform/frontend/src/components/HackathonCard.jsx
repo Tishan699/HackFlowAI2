@@ -1,9 +1,27 @@
 import { Link } from "react-router-dom";
-import { Calendar, Users, Award, MapPin, ArrowRight, Edit3, Building, ShieldCheck, Flame } from "lucide-react";
+import { Calendar, Users, Award, MapPin, ArrowRight, Edit3, Building, ShieldCheck, Flame, Trash2, AlertTriangle } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import { useState } from "react";
+import { hackathonService } from "../services/api";
 
-export default function HackathonCard({ hackathon }) {
+export default function HackathonCard({ hackathon, onDeleted }) {
   const { user } = useAuth();
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  const handleDelete = async () => {
+    setDeleting(true);
+    try {
+      await hackathonService.delete(hackathon.id);
+      setShowDeleteModal(false);
+      if (onDeleted) onDeleted(hackathon.id);
+    } catch (err) {
+      console.error("Delete failed:", err);
+      alert("Failed to delete event. Please try again.");
+    } finally {
+      setDeleting(false);
+    }
+  };
 
   const getGradient = (id) => {
     const num = Number(id) || 1;
@@ -57,6 +75,7 @@ export default function HackathonCard({ hackathon }) {
   const stateBadge = getEventStateBadge(hackathon.eventState);
 
   return (
+    <>
     <div className={`bg-[#120c0b] border ${hackathon.eventState === 'DRAFT' ? 'border-amber-500/60 ring-2 ring-amber-500/20' : 'border-red-950/60 hover:border-orange-500/50'} rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-red-950/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative`}>
       <div>
         {/* Banner with Volcanic Gradient */}
@@ -154,6 +173,13 @@ export default function HackathonCard({ hackathon }) {
                 <Edit3 size={13} />
                 Edit Details
               </Link>
+              <button
+                onClick={() => setShowDeleteModal(true)}
+                title="Delete Event"
+                className="flex items-center justify-center p-2.5 bg-[#1f1311] hover:bg-red-700 text-red-400 hover:text-white rounded-xl border border-red-900/40 transition cursor-pointer"
+              >
+                <Trash2 size={15} />
+              </button>
               <Link
                 to={`/hackathons/${hackathon.id}`}
                 className="flex items-center justify-center p-2.5 bg-[#1f1311] hover:bg-red-600 hover:text-white text-zinc-300 rounded-xl border border-red-900/40 transition"
@@ -174,5 +200,52 @@ export default function HackathonCard({ hackathon }) {
         </div>
       </div>
     </div>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-[#120c0b] border border-red-800/60 rounded-2xl shadow-2xl shadow-black/80 max-w-md w-full p-6 animate-in fade-in zoom-in-95 duration-200">
+            {/* Warning Icon */}
+            <div className="flex justify-center mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-red-950/60 border border-red-700/50 flex items-center justify-center">
+                <AlertTriangle size={28} className="text-red-400" />
+              </div>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-lg font-extrabold text-white text-center mb-1">Delete Event?</h3>
+            <p className="text-zinc-400 text-sm text-center mb-1">You are about to permanently delete:</p>
+            <p className="text-orange-300 font-bold text-center text-sm mb-4 px-4 py-2 bg-red-950/30 rounded-xl border border-red-900/40">
+              "{hackathon.title}"
+            </p>
+            <p className="text-xs text-zinc-500 text-center mb-6">
+              ⚠️ This action is <strong className="text-red-400">irreversible</strong>. All participants, teams, and submissions linked to this event will also be removed.
+            </p>
+
+            {/* Actions */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                disabled={deleting}
+                className="flex-1 py-2.5 rounded-xl bg-[#1c1110] border border-red-950/60 text-zinc-300 hover:text-white hover:bg-[#271615] text-sm font-bold transition cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDelete}
+                disabled={deleting}
+                className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white text-sm font-bold shadow-lg shadow-red-950/50 transition cursor-pointer disabled:opacity-60 flex items-center justify-center gap-2"
+              >
+                {deleting ? (
+                  <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Deleting...</>
+                ) : (
+                  <><Trash2 size={15} />Delete Event</>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
