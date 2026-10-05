@@ -8,14 +8,14 @@ const getApiBaseUrl = () => {
   if (envUrl && typeof envUrl === "string") {
     envUrl = envUrl.trim().replace(/\/+$/, "");
     if (!isLocal && envUrl.startsWith("http://localhost")) {
-      return "https://hackflowai-production.up.railway.app/api";
+      return "https://hackflowai2.onrender.com/api";
     }
     if (!envUrl.endsWith("/api")) {
       envUrl = `${envUrl}/api`;
     }
     return envUrl;
   }
-  return isLocal ? "http://localhost:5000/api" : "https://hackflowai-production.up.railway.app/api";
+  return isLocal ? "http://localhost:5000/api" : "https://hackflowai2.onrender.com/api";
 };
 
 const API_BASE_URL = getApiBaseUrl();
