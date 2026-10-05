@@ -188,7 +188,7 @@ export const AuthProvider = ({ children }) => {
   /**
    * Sign In with MFA challenge support
    */
-  const login = async (email, password, role = "organizer", require2Fa = false) => {
+  const login = async (email, password, require2Fa = false) => {
     setLoading(true);
     try {
       // If 2FA is required for sign-in, trigger security code to user's email
@@ -200,7 +200,6 @@ export const AuthProvider = ({ children }) => {
 
         setPendingUser({
           email,
-          role,
           name: email.split("@")[0],
           isLoginChallenge: true,
         });
@@ -223,7 +222,8 @@ export const AuthProvider = ({ children }) => {
         const loggedUser = response.data.user || {
           name: email.split("@")[0],
           email,
-          role: response.data.user?.role || role,
+          role: response.data.user?.role || "participant",
+          assignedRoles: response.data.user?.assignedRoles || ["participant"],
           avatar: email.slice(0, 2).toUpperCase(),
           isEmailVerified: true,
           mfaEnabled: true,
@@ -239,7 +239,8 @@ export const AuthProvider = ({ children }) => {
         id: `u_${Date.now()}`,
         name: email ? email.split("@")[0].replace(".", " ") : "Demo User",
         email,
-        role: role || "participant",
+        role: "participant",
+        assignedRoles: ["participant"],
         avatar: initials,
         isEmailVerified: true,
         mfaEnabled: true,

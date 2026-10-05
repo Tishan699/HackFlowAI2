@@ -24,7 +24,6 @@ export default function Login() {
 
   const [email, setEmail] = useState("organizer@hackflow.dev");
   const [password, setPassword] = useState("password123");
-  const [role, setRole] = useState("organizer");
   const [error, setError] = useState("");
 
   // Step 2: MFA 2FA Challenge state
@@ -43,7 +42,7 @@ export default function Login() {
     setError("");
 
     try {
-      const result = await login(email, password, role);
+      const result = await login(email, password);
       if (result?.mfaRequired) {
         setIs2FaStep(true);
       } else {
@@ -126,12 +125,7 @@ export default function Login() {
     }
   };
 
-  const handleQuickLogin = async (demoEmail, demoRole) => {
-    setEmail(demoEmail);
-    setRole(demoRole);
-    await login(demoEmail, "password123", demoRole);
-    navigate(from, { replace: true });
-  };
+
 
   const handleFillFromInbox = (code) => {
     setOtpDigits(code.split("").slice(0, 6));
@@ -254,53 +248,7 @@ export default function Login() {
         ) : (
           /* Step 1: Standard Login Form */
           <>
-            {/* Quick Demo Login Presets */}
-            <div className="bg-[#120c0b] border border-red-950/80 rounded-2xl p-3 mb-3 backdrop-blur-md shadow-xl">
-              <p className="text-[11px] font-semibold text-orange-400 uppercase tracking-wider mb-2 flex items-center gap-1">
-                <ShieldCheck size={13} className="text-orange-400" /> Quick Demo Role Switch:
-              </p>
-              <div className="grid grid-cols-4 gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => handleQuickLogin("john@hackflow.dev", "organizer")}
-                  className="flex flex-col items-center justify-center p-1.5 rounded-lg bg-[#1c1211] hover:bg-red-950/60 border border-red-900/40 hover:border-orange-500/40 text-center text-[11px] text-zinc-300 transition cursor-pointer"
-                  title="Organizer: John Doe"
-                >
-                  <Users size={13} className="text-orange-400 mb-0.5" />
-                  <span className="font-semibold text-white">Organizer</span>
-                </button>
 
-                <button
-                  type="button"
-                  onClick={() => handleQuickLogin("alex@neuralninjas.dev", "participant")}
-                  className="flex flex-col items-center justify-center p-1.5 rounded-lg bg-[#1c1211] hover:bg-red-950/60 border border-red-900/40 hover:border-orange-500/40 text-center text-[11px] text-zinc-300 transition cursor-pointer"
-                  title="Participant: Alex Rivera"
-                >
-                  <Code size={13} className="text-orange-400 mb-0.5" />
-                  <span className="font-semibold text-white">Participant</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleQuickLogin("elena@judges.dev", "judge")}
-                  className="flex flex-col items-center justify-center p-1.5 rounded-lg bg-[#1c1211] hover:bg-red-950/60 border border-red-900/40 hover:border-orange-500/40 text-center text-[11px] text-zinc-300 transition cursor-pointer"
-                  title="Judge: Dr. Elena Rostova"
-                >
-                  <UserCheck size={13} className="text-orange-400 mb-0.5" />
-                  <span className="font-semibold text-white">Judge</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleQuickLogin("mentor@cloud.dev", "mentor")}
-                  className="flex flex-col items-center justify-center p-1.5 rounded-lg bg-[#1c1211] hover:bg-red-950/60 border border-red-900/40 hover:border-orange-500/40 text-center text-[11px] text-zinc-300 transition cursor-pointer"
-                  title="Mentor: Siddharth Verma"
-                >
-                  <ShieldCheck size={13} className="text-orange-400 mb-0.5" />
-                  <span className="font-semibold text-white">Mentor</span>
-                </button>
-              </div>
-            </div>
 
             {/* Main Login Form */}
             <form
@@ -341,21 +289,7 @@ export default function Login() {
                 />
               </div>
 
-              <div className="mb-4">
-                <label className="block text-[11px] font-semibold text-zinc-300 uppercase tracking-wider mb-1">
-                  Role
-                </label>
-                <select
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  className="w-full px-3.5 py-2 text-xs sm:text-sm bg-[#1c1211] border border-red-900/40 rounded-xl text-zinc-100 outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition cursor-pointer"
-                >
-                  <option className="bg-[#1c1211] text-zinc-100" value="organizer">Organizer (Manage Hackathons)</option>
-                  <option className="bg-[#1c1211] text-zinc-100" value="participant">Participant</option>
-                  <option className="bg-[#1c1211] text-zinc-100" value="judge">Judge (Evaluation & Scoring)</option>
-                  <option className="bg-[#1c1211] text-zinc-100" value="mentor">Mentor (Advisory & Guidance)</option>
-                </select>
-              </div>
+
 
               <button
                 type="submit"
