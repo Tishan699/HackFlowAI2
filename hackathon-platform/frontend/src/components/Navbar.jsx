@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Bell, Search, Menu, CheckCircle2, Trophy, Clock, ShieldCheck, Flame, Sparkles } from "lucide-react";
+import { Bell, Search, Menu, CheckCircle2, Trophy, Clock, ShieldCheck, Flame, Sparkles, X } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import EmailInboxDrawer from "./EmailInboxDrawer";
 
@@ -93,12 +93,21 @@ export default function Navbar({ onToggleSidebar }) {
                     </span>
                   )}
                 </div>
-                <button
-                  onClick={markAllRead}
-                  className="text-xs text-orange-400 hover:text-orange-300 font-semibold"
-                >
-                  Mark all as read
-                </button>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={markAllRead}
+                    className="text-xs text-orange-400 hover:text-orange-300 font-semibold"
+                  >
+                    Mark all as read
+                  </button>
+                  <button
+                    onClick={() => setShowNotifications(false)}
+                    className="text-zinc-400 hover:text-white transition"
+                    aria-label="Close notifications"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
               </div>
 
               <div className="divide-y divide-red-950/40 max-h-72 overflow-y-auto mt-2 custom-scrollbar">
