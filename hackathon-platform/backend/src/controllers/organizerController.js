@@ -194,9 +194,46 @@ exports.getMyStatus = (req, res) => {
       return res.status(401).json({ error: 'Authentication required.' });
     }
 
-    const applications = db.find('organizerApplications', a =>
+    let applications = db.find('organizerApplications', a =>
       a.userId === user.id || (user.email && a.email?.toLowerCase() === user.email.toLowerCase())
     );
+
+    // Retroactively auto-approve any PENDING applications
+    let stateChanged = false;
+    applications = applications.map(app => {
+      if (app.status === 'PENDING') {
+        app.status = 'APPROVED';
+        app.autoApproved = true;
+        app.reviewNotes = 'Retroactively auto-approved by system update.';
+        db.updateById('organizerApplications', app.id, app);
+        stateChanged = true;
+      }
+      return app;
+    });
+
+    if (stateChanged) {
+      const existingUser = db.findById('users', user.id);
+      if (existingUser) {
+        const currentRoles = Array.isArray(existingUser.assignedRoles)
+          ? existingUser.assignedRoles
+          : [existingUser.role || 'participant'];
+
+        if (!currentRoles.includes('organizer')) {
+          currentRoles.push('organizer');
+        }
+
+        db.updateById('users', user.id, {
+          role: 'organizer',
+          assignedRoles: currentRoles,
+          isOrganizerVerified: true,
+          updatedAt: new Date().toISOString(),
+        });
+        
+        // Update the current user reference for the response
+        user.role = 'organizer';
+        user.isOrganizerVerified = true;
+      }
+    }
 
     res.json({
       isOrganizer: user.role === 'organizer' || user.role === 'admin',
