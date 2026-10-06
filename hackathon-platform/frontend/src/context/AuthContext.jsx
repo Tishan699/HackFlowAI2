@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
         ? JSON.parse(savedUser)
         : {
             id: "user-1",
-            name: "John Doe",
-            email: "john@hackflow.dev",
+            name: "Admin User",
+            email: "admin@hackflow.dev",
             role: "organizer",
             avatar: "JD",
             isEmailVerified: true,
