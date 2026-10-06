@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { Award, Download, Printer, Sparkles, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Award, Download, Printer, Sparkles, CheckCircle2, ShieldCheck, Lock } from "lucide-react";
 import confetti from "canvas-confetti";
+import { useAuth } from "../context/AuthContext";
 
 export default function Certificates() {
+  const { user } = useAuth();
+  const isOrganizer = user?.role === "organizer" || user?.assignedRoles?.includes("organizer");
+
   const [recipient, setRecipient] = useState("Alex Rivera");
   const [hackathonTitle, setHackathonTitle] = useState("TechFest Sri Lanka 2026");
   const [certType, setCertType] = useState("Winner - 1st Place");
@@ -47,12 +51,22 @@ export default function Certificates() {
             <Sparkles size={15} /> Celebrate
           </button>
 
-          <button
-            onClick={handlePrint}
-            className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-red-950/60 border border-orange-400/30 transition cursor-pointer"
-          >
-            <Printer size={15} /> Print Certificate
-          </button>
+          {isOrganizer ? (
+            <button
+              onClick={handlePrint}
+              className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-red-950/60 border border-orange-400/30 transition cursor-pointer"
+            >
+              <Printer size={15} /> Print Certificate
+            </button>
+          ) : (
+            <button
+              disabled
+              className="flex items-center gap-2 px-4 py-2.5 bg-zinc-800 text-zinc-500 rounded-xl text-xs font-bold border border-zinc-700/50 cursor-not-allowed"
+              title="Only organizers can generate certificates"
+            >
+              <Lock size={15} /> Print Certificate
+            </button>
+          )}
         </div>
       </div>
 
@@ -70,7 +84,8 @@ export default function Certificates() {
             <input
               value={recipient}
               onChange={(e) => setRecipient(e.target.value)}
-              className="w-full px-3.5 py-2 text-sm bg-[#1c1211] border border-red-900/40 text-zinc-100 placeholder-zinc-500 rounded-xl outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
+              disabled={!isOrganizer}
+              className="w-full px-3.5 py-2 text-sm bg-[#1c1211] border border-red-900/40 text-zinc-100 placeholder-zinc-500 rounded-xl outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -81,7 +96,8 @@ export default function Certificates() {
             <input
               value={hackathonTitle}
               onChange={(e) => setHackathonTitle(e.target.value)}
-              className="w-full px-3.5 py-2 text-sm bg-[#1c1211] border border-red-900/40 text-zinc-100 placeholder-zinc-500 rounded-xl outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
+              disabled={!isOrganizer}
+              className="w-full px-3.5 py-2 text-sm bg-[#1c1211] border border-red-900/40 text-zinc-100 placeholder-zinc-500 rounded-xl outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -92,7 +108,8 @@ export default function Certificates() {
             <select
               value={certType}
               onChange={(e) => setCertType(e.target.value)}
-              className="w-full px-3.5 py-2 text-sm bg-[#1c1211] border border-red-900/40 text-zinc-100 rounded-xl outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
+              disabled={!isOrganizer}
+              className="w-full px-3.5 py-2 text-sm bg-[#1c1211] border border-red-900/40 text-zinc-100 rounded-xl outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <option className="bg-[#1c1211] text-zinc-100">Winner - 1st Place Grand Champion</option>
               <option className="bg-[#1c1211] text-zinc-100">Runner Up - 2nd Place</option>
@@ -110,7 +127,8 @@ export default function Certificates() {
             <input
               value={issueDate}
               onChange={(e) => setIssueDate(e.target.value)}
-              className="w-full px-3.5 py-2 text-sm bg-[#1c1211] border border-red-900/40 text-zinc-100 placeholder-zinc-500 rounded-xl outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
+              disabled={!isOrganizer}
+              className="w-full px-3.5 py-2 text-sm bg-[#1c1211] border border-red-900/40 text-zinc-100 placeholder-zinc-500 rounded-xl outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
