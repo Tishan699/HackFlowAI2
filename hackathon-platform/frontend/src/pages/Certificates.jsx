@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 
 export default function Certificates() {
   const { user } = useAuth();
-  const isOrganizer = user?.role === "organizer" || user?.assignedRoles?.includes("organizer");
+  const isOrganizer = user?.role === "organizer" || user?.role === "admin" || user?.assignedRoles?.includes("organizer");
 
   const [recipient, setRecipient] = useState("Alex Rivera");
   const [hackathonTitle, setHackathonTitle] = useState("TechFest Sri Lanka 2026");
