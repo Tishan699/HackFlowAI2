@@ -44,7 +44,7 @@ function resolveUserFromRequest(req) {
       id: 'u_organizer',
       name: 'Admin User',
       email: 'admin@hackflow.dev',
-      role: 'organizer',
+      role: 'admin',
       organization: 'HackFlow Community'
     };
   }

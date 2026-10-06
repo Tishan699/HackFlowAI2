@@ -21,7 +21,7 @@ const getSeedData = () => {
         name: "Admin User",
         email: "admin@hackflow.dev",
         password: hashedPassword,
-        role: "organizer",
+        role: "admin",
         assignedRoles: ["participant", "organizer", "admin"],
         organization: "HackFlow Community",
         avatar: "JD",

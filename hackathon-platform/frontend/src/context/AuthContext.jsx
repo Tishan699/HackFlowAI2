@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
             id: "user-1",
             name: "Admin User",
             email: "admin@hackflow.dev",
-            role: "organizer",
+            role: "admin",
             avatar: "JD",
             isEmailVerified: true,
             mfaEnabled: true,
