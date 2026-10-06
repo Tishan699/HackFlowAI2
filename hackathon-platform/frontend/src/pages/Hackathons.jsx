@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { hackathonService } from "../services/api";
 
 export default function Hackathons() {
-  const { user } = useAuth();
+  const { user, grantOrganizerRole } = useAuth();
   const [hackathons, setHackathons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -106,6 +106,12 @@ export default function Hackathons() {
         officialEmail: applyForm.officialEmail || user?.email
       });
       setApplyResult(res);
+
+      // Auto-approved — immediately update local session
+      if (res?.autoApproved) {
+        grantOrganizerRole();
+        setTimeout(() => setShowApplyModal(false), 1500);
+      }
     } catch (err) {
       setApplyError(err.message || "Failed to submit application.");
     } finally {

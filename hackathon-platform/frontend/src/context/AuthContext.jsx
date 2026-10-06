@@ -398,6 +398,28 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  /**
+   * Directly grant the organizer role to the current user's session.
+   * Used when the backend confirms organizer status but the local session
+   * still shows 'participant' (e.g., after auto-approval).
+   */
+  const grantOrganizerRole = () => {
+    setUser(prev => {
+      if (!prev) return prev;
+      const currentRoles = Array.isArray(prev.assignedRoles)
+        ? prev.assignedRoles
+        : [prev.role || 'participant'];
+      const updatedRoles = currentRoles.includes('organizer')
+        ? currentRoles
+        : [...currentRoles, 'organizer'];
+      return {
+        ...prev,
+        role: 'organizer',
+        assignedRoles: updatedRoles,
+      };
+    });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -415,6 +437,7 @@ export const AuthProvider = ({ children }) => {
         logout,
         switchRole,
         requestRoleUpgrade,
+        grantOrganizerRole,
         toggleMfa,
         isJudgeFor,
         isOrganizerFor,

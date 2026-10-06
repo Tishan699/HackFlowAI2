@@ -33,7 +33,7 @@ import { useAuth } from "../context/AuthContext";
 import { hackathonService } from "../services/api";
 
 export default function Dashboard() {
-  const { user, refreshProfile } = useAuth();
+  const { user, refreshProfile, grantOrganizerRole } = useAuth();
   const [hackathons, setHackathons] = useState([]);
   const [teams, setTeams] = useState([]);
   const [submissions, setSubmissions] = useState([]);
@@ -92,6 +92,12 @@ export default function Dashboard() {
       if (user) {
         const myStatus = await hackathonService.getMyOrganizerStatus();
         setMyOrganizerStatus(myStatus || { isOrganizer: false, isVerified: false, applications: [] });
+
+        // If backend says user is organizer but local session still shows participant,
+        // immediately update the frontend session so all UI gates unlock
+        if (myStatus?.isOrganizer && user.role !== 'organizer' && user.role !== 'admin') {
+          grantOrganizerRole();
+        }
       }
 
       if (user?.role === "admin" || user?.role === "organizer") {
