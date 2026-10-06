@@ -49,7 +49,8 @@ exports.switchPersona = async (req, res) => {
 
 /**
  * Request a new role (Participant → Mentor/Judge/Organizer)
- * SECURITY: Does NOT grant the role. Creates a pending request for admin approval.
+ * Organizer role is AUTO-APPROVED immediately on application.
+ * Mentor and Judge still require admin approval.
  */
 exports.requestRole = async (req, res) => {
   try {
@@ -79,7 +80,40 @@ exports.requestRole = async (req, res) => {
       });
     }
 
-    // Check for existing pending request
+    // ─── AUTO-APPROVE for Organizer role ────────────────────────────────────
+    if (requestedRole === 'organizer') {
+      const updatedRoles = [...assignedRoles, 'organizer'];
+
+      // Immediately grant organizer role and switch active role
+      db.updateById('users', userId, {
+        assignedRoles: updatedRoles,
+        role: 'organizer',
+      });
+
+      // Log it as auto-approved for record keeping
+      db.insert('roleRequests', {
+        userId,
+        userEmail: user.email,
+        userName: user.name,
+        requestedRole: 'organizer',
+        reason: reason || '',
+        status: 'APPROVED',
+        autoApproved: true,
+        reviewedAt: new Date().toISOString(),
+        reviewNotes: 'Auto-approved on application.',
+      });
+
+      return res.status(200).json({
+        success: true,
+        autoApproved: true,
+        message: `Congratulations! You are now an Organizer. Your active role has been updated immediately.`,
+        role: 'organizer',
+        assignedRoles: updatedRoles,
+      });
+    }
+    // ────────────────────────────────────────────────────────────────────────
+
+    // For mentor/judge: check for existing pending request
     const existingRequest = db.findOne('roleRequests', r =>
       r.userId === userId &&
       r.requestedRole === requestedRole &&
@@ -93,7 +127,7 @@ exports.requestRole = async (req, res) => {
       });
     }
 
-    // Create the role request
+    // Create pending request (mentor/judge — requires admin approval)
     const roleRequest = db.insert('roleRequests', {
       userId,
       userEmail: user.email,
@@ -152,7 +186,7 @@ exports.getMyRoleRequests = async (req, res) => {
 };
 
 /**
- * Approve or Reject a role request
+ * Approve or Reject a role request (mentor/judge)
  * SECURITY: Only organizers/admins can approve. Users CANNOT approve their own requests.
  */
 exports.reviewRoleRequest = async (req, res) => {
@@ -194,8 +228,7 @@ exports.reviewRoleRequest = async (req, res) => {
 
         db.updateById('users', targetUser.id, {
           assignedRoles: currentRoles,
-          // Optionally set active role to the newly approved one
-          role: roleRequest.requestedRole,
+          role: roleRequest.requestedRole, // switch active role to the approved one
         });
       }
 

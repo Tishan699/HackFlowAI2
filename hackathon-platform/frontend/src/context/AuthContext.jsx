@@ -330,6 +330,30 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  /**
+   * Request a role upgrade (organizer is auto-approved immediately)
+   */
+  const requestRoleUpgrade = async (requestedRole, reason = '') => {
+    try {
+      const res = await api.post('/roles/request', { requestedRole, reason });
+      const data = res.data;
+
+      // If organizer was auto-approved, update local session immediately
+      if (data?.autoApproved && data?.role) {
+        setUser(prev => ({
+          ...prev,
+          role: data.role,
+          assignedRoles: data.assignedRoles || [...(prev.assignedRoles || []), data.role],
+        }));
+      }
+
+      return data;
+    } catch (err) {
+      const msg = err?.response?.data?.error || 'Failed to submit role request.';
+      throw new Error(msg);
+    }
+  };
+
   const toggleMfa = (enabled) => {
     if (user) {
       const updated = { ...user, mfaEnabled: enabled };
@@ -390,6 +414,7 @@ export const AuthProvider = ({ children }) => {
         verifyLogin2Fa,
         logout,
         switchRole,
+        requestRoleUpgrade,
         toggleMfa,
         isJudgeFor,
         isOrganizerFor,
