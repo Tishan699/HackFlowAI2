@@ -29,15 +29,21 @@ exports.applyForOrganizer = async (req, res) => {
       return res.status(400).json({ error: 'Organization name and event proposal description are required.' });
     }
 
-    // Check if user already has a pending application
+    // Check if user already has organizer role — no need to re-apply
+    if (user.role === 'organizer' || user.role === 'admin') {
+      return res.status(409).json({ error: 'You already have organizer access.' });
+    }
+
+    // Check for any existing non-rejected application
     const existing = db.findOne('organizerApplications', a =>
       (a.userId === user.id || (user.email && a.email?.toLowerCase() === user.email.toLowerCase())) &&
-      a.status === 'PENDING'
+      ['PENDING', 'APPROVED'].includes(a.status)
     );
 
     if (existing) {
       return res.status(400).json({
-        error: 'You already have an organizer verification application pending review by Platform Admins.'
+        error: 'You already have an organizer application on record.',
+        application: existing
       });
     }
 
@@ -55,6 +61,27 @@ exports.applyForOrganizer = async (req, res) => {
       estimatedParticipants: Number(estimatedParticipants) || 100
     });
 
+    // ─── AUTO-APPROVE: Grant organizer role immediately on application ───────
+    const existingUser = db.findById('users', user.id);
+    if (existingUser) {
+      const currentRoles = Array.isArray(existingUser.assignedRoles)
+        ? existingUser.assignedRoles
+        : [existingUser.role || 'participant'];
+
+      if (!currentRoles.includes('organizer')) {
+        currentRoles.push('organizer');
+      }
+
+      db.updateById('users', user.id, {
+        role: 'organizer',
+        assignedRoles: currentRoles,
+        isOrganizerVerified: true,
+        organization: organizationName,
+        updatedAt: new Date().toISOString(),
+      });
+    }
+    // ────────────────────────────────────────────────────────────────────────
+
     const newApp = db.insert('organizerApplications', {
       userId: user.id,
       name: user.name,
@@ -70,15 +97,20 @@ exports.applyForOrganizer = async (req, res) => {
       pastEvents: pastEvents || '',
       proposal,
       estimatedParticipants: Number(estimatedParticipants) || 100,
-      status: 'PENDING',
+      status: 'APPROVED',  // Auto-approved immediately
+      autoApproved: true,
       aiEvaluation,
+      reviewedAt: new Date().toISOString(),
+      reviewNotes: 'Auto-approved on submission.',
       createdAt: new Date().toISOString()
     });
 
     res.status(201).json({
       success: true,
-      message: 'Organizer proposal submitted successfully. The platform administration committee will review your application.',
-      application: newApp
+      autoApproved: true,
+      message: 'Congratulations! Your Organizer application has been approved. You now have full organizer access.',
+      application: newApp,
+      role: 'organizer',
     });
   } catch (error) {
     console.error('Organizer application error:', error);

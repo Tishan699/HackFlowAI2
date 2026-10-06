@@ -33,7 +33,7 @@ import { useAuth } from "../context/AuthContext";
 import { hackathonService } from "../services/api";
 
 export default function Dashboard() {
-  const { user } = useAuth();
+  const { user, refreshProfile } = useAuth();
   const [hackathons, setHackathons] = useState([]);
   const [teams, setTeams] = useState([]);
   const [submissions, setSubmissions] = useState([]);
@@ -158,6 +158,12 @@ export default function Dashboard() {
       });
       setApplyResult(res);
       await loadData();
+      
+      // Auto-approved! Immediately refresh profile and close modal after 1.5s
+      if (res?.autoApproved) {
+        if (refreshProfile) await refreshProfile();
+        setTimeout(() => setShowApplyModal(false), 1500);
+      }
     } catch (err) {
       setApplyError(err.message || "Failed to submit organizer application.");
     } finally {
